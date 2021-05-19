@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { fetchData } from "../../helper";
 import "./user-form.css";
 
-function UserForm({setUser, setUserIsValid}) {
+function UserForm({ setUser, setUserIsValid }) {
   const [availableCurrencies, setAvailableCurrencies] = useState([]);
   const [selectedCurrency, setSelectedCurrency] = useState("");
   const [email, setEmail] = useState("");
@@ -13,7 +13,7 @@ function UserForm({setUser, setUserIsValid}) {
       const currencyCodes = await fetchData("available_currency_codes");
       setAvailableCurrencies(currencyCodes.currency_codes);
     };
-    getCurrencyCodes()
+    getCurrencyCodes();
   }, []);
 
   useEffect(() => {
@@ -22,8 +22,15 @@ function UserForm({setUser, setUserIsValid}) {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const balance = await fetchData(`user/available_balance?email=${email}&currency_code=${selectedCurrency}`);
-    setUser({ email: email, currency: selectedCurrency, balance: balance.balance_in_cents, isValid: true });
+    const balance = await fetchData(
+      `user/available_balance?email=${email}&currency_code=${selectedCurrency}`
+    );
+    setUser({
+      email: email,
+      currency: selectedCurrency,
+      balance: balance.balance_in_cents,
+      isValid: true,
+    });
   }
 
   return (

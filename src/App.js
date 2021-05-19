@@ -12,7 +12,11 @@ function App() {
     <div className="App">
       <NavBar />
       {user.balance && <DisplayBalanceBar balance={user.balance} />}
-      {user.isValid ? <DisplayPage user={user} /> : <UserForm setUser={setUser} />}
+      {user.isValid ? (
+        <DisplayPage user={user} />
+      ) : (
+        <UserForm setUser={setUser} />
+      )}
     </div>
   );
 }

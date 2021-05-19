@@ -3,7 +3,7 @@ const baseURL = "http://localhost:8850/";
 export async function fetchData(endpoint) {
   const url = `${baseURL}${endpoint}`;
   try {
-    const response = await fetch(url)
+    const response = await fetch(url);
     const data = await response.json();
     return data;
   } catch (error) {
@@ -13,9 +13,9 @@ export async function fetchData(endpoint) {
 
 //https://stackoverflow.com/questions/32768494/convert-a-whole-number-amount-of-cents-to-a-readable-dollar-amount-in-javascript
 export function convertCentsToDollars(cents) {
-    const dollars = cents / 100;
-    return dollars.toLocaleString("en-US", {
-      style: "currency",
-      currency: "USD",
-    });
+  const dollars = cents / 100;
+  return dollars.toLocaleString("en-US", {
+    style: "currency",
+    currency: "USD",
+  });
 }
