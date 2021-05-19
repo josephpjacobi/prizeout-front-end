@@ -1,23 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import NavBar from "./components/nav-bar/nav-bar";
+import DisplayBalanceBar from "./components/display-balance-bar/display-balance";
+import UserForm from "./components/user-form/user-form";
+import DisplayPage from "./components/display-page/display-page";
+import "./App.css";
 
 function App() {
+  const [user, setUser] = useState({});
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavBar />
+      {user.balance && <DisplayBalanceBar balance={user.balance} />}
+      {user.isValid ? <DisplayPage user={user} /> : <UserForm setUser={setUser} />}
     </div>
   );
 }
