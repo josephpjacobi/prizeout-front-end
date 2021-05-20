@@ -20,7 +20,7 @@ function DisplayGiftCards({ currencyCode, userBalance }) {
 		<div className="gift-card-section">
 			{giftCards.length > 0 ? (
 				giftCards.map((companyData) => {
-					return <GiftCard data={companyData} userBalance={userBalance}/>;
+					return <GiftCard key={companyData.brand_code} data={companyData} userBalance={userBalance}/>;
 				})
 			) : (
 				<div>No Gift Cards</div>

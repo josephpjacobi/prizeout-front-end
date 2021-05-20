@@ -51,6 +51,7 @@ function GiftCardCheckout({giftCardData, userBalance}) {
 						</select>
 					</label>
 				)}
+                <button>Purchase Gift Card</button>
 			</div>
 		);
 }
