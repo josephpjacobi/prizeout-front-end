@@ -1,8 +1,8 @@
 .purchase {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 5px solid #1976D2;
-    padding: 5px;
-    margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 5px solid #1976d2;
+  padding: 5px;
+  margin: 10px;
 }
