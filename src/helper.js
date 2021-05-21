@@ -9,7 +9,22 @@ export async function fetchData(endpoint) {
   } catch (error) {
     console.log(error);
   }
-}
+};
+
+// export async function postData(endpoint, body) {
+//     console.log(body);
+// 	const url = `${baseURL}${endpoint}`;
+// 	try {
+// 		const response = await fetch(url, {
+//             method: "POST",
+            
+//         });
+// 		const data = await response.json();
+// 		return data;
+// 	} catch (error) {
+// 		console.log(error);
+// 	}
+// }
 
 //https://stackoverflow.com/questions/32768494/convert-a-whole-number-amount-of-cents-to-a-readable-dollar-amount-in-javascript
 export function convertCentsToDollars(cents) {

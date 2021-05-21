@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { fetchData } from "../../helper";
 import "./user-form.css";
 
-function UserForm({ setUser, setUserIsValid }) {
+function UserForm({ setUser }) {
   const [availableCurrencies, setAvailableCurrencies] = useState([]);
   const [selectedCurrency, setSelectedCurrency] = useState("");
   const [email, setEmail] = useState("");
@@ -26,6 +26,7 @@ function UserForm({ setUser, setUserIsValid }) {
       `user/available_balance?email=${email}&currency_code=${selectedCurrency}`
     );
     setUser({
+      id: balance.id,
       email: email,
       currency: selectedCurrency,
       balance: balance.balance_in_cents,

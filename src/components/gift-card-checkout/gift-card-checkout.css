@@ -1,8 +1,16 @@
+.giftcard-checkout-container {
+    height: 200px;
+}
+
 .brand-description {
-    height: 60%;
+    height: 50%;
     font-size: 12px;
     overflow: scroll;
     padding: 3px;
+}
+
+.checkout {
+    height: 50%;
 }
 
 .amount-label {
