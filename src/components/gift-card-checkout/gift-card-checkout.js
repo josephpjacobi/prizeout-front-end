@@ -37,6 +37,13 @@ function GiftCardCheckout({ brandData, user, currencyCode, setUser }) {
     validateAmount(e.target.value);
   }
 
+  function handleSelect(e) {
+    setPurchaseInfo({
+      value: e.target.value / 100,
+      isValid: e.target.value ? true : false,
+    });
+  }
+
   async function bookGiftCard() {
     const giftCardAmountInCents = convertAmountToCents(purchaseInfo.value);
     const bookingInfo = await postData(
@@ -80,7 +87,11 @@ function GiftCardCheckout({ brandData, user, currencyCode, setUser }) {
         ) : (
           <label htmlFor="gift-card-purchase">
             <h6 className="amount-label">Available Gift Card Amounts:</h6>
-            <select name="gift-card-purchase" id="gift-card-purchase">
+            <select
+              name="gift-card-purchase"
+              id="gift-card-purchase"
+              onChange={(e) => handleSelect(e)}
+            >
               <option value="">Select Amount</option>
               {allowed_prices_in_cents.map((amount) => {
                 return (
