@@ -7,12 +7,13 @@ import "./App.css";
 
 function App() {
   const [user, setUser] = useState({});
+  console.log(user);
 
   return (
     <div className="App">
       <NavBar />
       {user.balance && <DisplayBalanceBar balance={user.balance} />}
-      {user.isValid && user.id ? (
+      {user.id ? (
         <DisplayPage user={user} setUser={setUser} />
       ) : (
         <UserForm setUser={setUser} />

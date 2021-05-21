@@ -4,6 +4,7 @@ import { postData } from "../../helper";
 import "./gift-card-checkout.css";
 
 function GiftCardCheckout({ brandData, user, currencyCode, setUser }) {
+  console.log(user);
   const [purchaseInfo, setPurchaseInfo] = useState({
     value: "",
     isValid: false,
@@ -26,7 +27,8 @@ function GiftCardCheckout({ brandData, user, currencyCode, setUser }) {
     const giftCardAmount = convertAmountToCents(amount);
     const validAmount =
       min_price_in_cents < giftCardAmount &&
-      max_price_in_cents > giftCardAmount;
+      max_price_in_cents > giftCardAmount &&
+      user.balance > giftCardAmount;
     setPurchaseInfo({ value: amount, isValid: validAmount });
   }
 
